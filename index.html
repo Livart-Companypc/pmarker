@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마커생성기</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="main">
+        <div class="file-selector">
+          <label for="imageInput" class="file-label">1.이미지 파일 선택</label>
+          <input type="file" id="imageInput" accept="image/*" />
+        </div>
+        <div class="image-display">
+          <div id="imageContainer" class="image-container">
+            <p class="placeholder-text">이미지를 선택하면 여기에 표시됩니다.</p>
+            <!-- <div class="marker-plus">+</div> -->
+          </div>
+        </div>
+      </div>
+      <div class="side">
+        <div class="side-header">
+          <h2>2.선택한 이미지에서 리바트 제품을 마커로 표시하세요</h2>
+        </div>
+        <div class="side-content">
+          <div class="marker-table-container">
+            <table class="marker-table">
+              <thead>
+                <tr>
+                  <th>Marker순서</th>
+                  <th>Pcode</th>
+                  <th>Left(%)</th>
+                  <th>Top(%)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Marker1</td>
+                  <td>
+                    <input
+                      type="text"
+                      class="pcode-input"
+                      placeholder="pcode"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="position-input"
+                      placeholder="left 좌표"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="position-input"
+                      placeholder="top 좌표"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Marker2</td>
+                  <td>
+                    <input
+                      type="text"
+                      class="pcode-input"
+                      placeholder="pcode"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="position-input"
+                      placeholder="left 좌표"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="position-input"
+                      placeholder="top 좌표"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Marker3</td>
+                  <td>
+                    <input
+                      type="text"
+                      class="pcode-input"
+                      placeholder="pcode"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="position-input"
+                      placeholder="left 좌표"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="position-input"
+                      placeholder="top 좌표"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Marker4</td>
+                  <td>
+                    <input
+                      type="text"
+                      class="pcode-input"
+                      placeholder="pcode"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="position-input"
+                      placeholder="left 좌표"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="position-input"
+                      placeholder="top 좌표"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Marker5</td>
+                  <td>
+                    <input
+                      type="text"
+                      class="pcode-input"
+                      placeholder="pcode"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="position-input"
+                      placeholder="left 좌표"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="position-input"
+                      placeholder="top 좌표"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Marker6</td>
+                  <td>
+                    <input
+                      type="text"
+                      class="pcode-input"
+                      placeholder="pcode"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="position-input"
+                      placeholder="left 좌표"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="position-input"
+                      placeholder="top 좌표"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Marker7</td>
+                  <td>
+                    <input
+                      type="text"
+                      class="pcode-input"
+                      placeholder="pcode"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="position-input"
+                      placeholder="left 좌표"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="position-input"
+                      placeholder="top 좌표"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Marker8</td>
+                  <td>
+                    <input
+                      type="text"
+                      class="pcode-input"
+                      placeholder="pcode"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="position-input"
+                      placeholder="left 좌표"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="position-input"
+                      placeholder="top 좌표"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Marker9</td>
+                  <td>
+                    <input
+                      type="text"
+                      class="pcode-input"
+                      placeholder="pcode"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="position-input"
+                      placeholder="left 좌표"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="position-input"
+                      placeholder="top 좌표"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Marker10</td>
+                  <td>
+                    <input
+                      type="text"
+                      class="pcode-input"
+                      placeholder="pcode"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="position-input"
+                      placeholder="left 좌표"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="position-input"
+                      placeholder="top 좌표"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="side-footer">
+          <textarea class="notes-textarea" placeholder=""></textarea>
+        </div>
+      </div>
+    </div>
+    <script>
+      const imageInput = document.getElementById("imageInput");
+      const imageContainer = document.getElementById("imageContainer");
+      let selectedImage = null;
+      let markerCount = 0;
+
+      imageInput.addEventListener("change", function (event) {
+        const file = event.target.files[0];
+
+        if (file && file.type.startsWith("image/")) {
+          const reader = new FileReader();
+
+          reader.onload = function (e) {
+            selectedImage = e.target.result;
+            imageContainer.innerHTML = `<img src="${e.target.result}" alt="Selected Image" class="selected-image" />`;
+
+            // 이미지 로드 후 이벤트 리스너 추가
+            const img = imageContainer.querySelector(".selected-image");
+            img.onload = function () {
+              setupImageClickHandler();
+              setupImageLoadHandler();
+              repositionMarkers();
+            };
+          };
+
+          reader.readAsDataURL(file);
+        } else {
+          selectedImage = null;
+          imageContainer.innerHTML =
+            '<p class="placeholder-text">올바른 이미지 파일을 선택해주세요.</p>';
+        }
+      });
+
+      function setupImageClickHandler() {
+        const img = imageContainer.querySelector(".selected-image");
+        if (img) {
+          img.addEventListener("click", function (event) {
+            // 마커 클릭인 경우 무시
+            if (event.target.classList.contains("marker-plus")) {
+              return;
+            }
+
+            if (markerCount >= 10) {
+              alert("마커는 최대 10개까지만 생성할 수 있습니다.");
+              return;
+            }
+
+            // 이미지 내에서의 상대적 위치 계산
+            const rect = img.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            // 퍼센트로 변환
+            const leftPercent = Math.round((x / img.clientWidth) * 100);
+            const topPercent = Math.round((y / img.clientHeight) * 100);
+
+            // 마커 생성
+            createMarker(leftPercent, topPercent);
+
+            // 테이블에 좌표값 입력
+            updateMarkerTable(markerCount, leftPercent, topPercent);
+
+            markerCount++;
+          });
+        }
+      }
+
+      // imageContainer 클릭 이벤트 (이미지 선택 없이 클릭할 경우)
+      imageContainer.addEventListener("click", function (event) {
+        // 이미지가 선택되지 않은 경우에만 경고
+        if (
+          !selectedImage &&
+          !event.target.classList.contains("selected-image")
+        ) {
+          alert("이미지를 먼저 선택하세요.");
+        }
+      });
+
+      function createMarker(leftPercent, topPercent) {
+        const marker = document.createElement("div");
+        marker.className = "marker-plus";
+        
+        // 이미지 위치와 크기를 고려한 마커 위치 계산
+        const img = imageContainer.querySelector(".selected-image");
+        if (img) {
+          const imgRect = img.getBoundingClientRect();
+          const containerRect = imageContainer.getBoundingClientRect();
+          
+          // 이미지 내에서의 픽셀 위치
+          const imgX = (leftPercent / 100) * img.clientWidth;
+          const imgY = (topPercent / 100) * img.clientHeight;
+          
+          // 컨테이너 내에서의 절대 위치
+          const containerX = imgX + (imgRect.left - containerRect.left);
+          const containerY = imgY + (imgRect.top - containerRect.top);
+          
+          marker.style.left = containerX + "px";
+          marker.style.top = containerY + "px";
+        }
+        
+        marker.textContent = "+";
+        const markerId = markerCount + 1;
+        marker.setAttribute("data-marker-id", markerId);
+        marker.setAttribute("data-left-percent", leftPercent);
+        marker.setAttribute("data-top-percent", topPercent);
+
+        // 기존에 입력된 pcode 값이 있다면 마커에 반영
+        const rows = document.querySelectorAll(".marker-table tbody tr");
+        if (markerCount < rows.length) {
+          const row = rows[markerCount];
+          const pcodeInput = row.querySelector(".pcode-input");
+          if (pcodeInput && pcodeInput.value.trim() !== "") {
+            marker.setAttribute("pcode", pcodeInput.value);
+          }
+        }
+
+        // 드래그 기능 추가
+        setupMarkerDrag(marker);
+
+        // imageContainer를 부모로 하여 마커 추가
+        imageContainer.appendChild(marker);
+      }
+
+      function updateMarkerTable(index, leftPercent, topPercent) {
+        const rows = document.querySelectorAll(".marker-table tbody tr");
+        if (index < rows.length) {
+          const row = rows[index];
+          const leftInput = row.querySelectorAll(".position-input")[0];
+          const topInput = row.querySelectorAll(".position-input")[1];
+
+          leftInput.value = leftPercent + "%";
+          topInput.value = topPercent + "%";
+        }
+      }
+
+      function setupMarkerDrag(marker) {
+        let isDragging = false;
+        let startX, startY;
+        let startLeft, startTop;
+
+        marker.addEventListener("mousedown", function (e) {
+          e.preventDefault();
+          e.stopPropagation(); // 이미지 클릭 이벤트 방지
+
+          isDragging = true;
+          startX = e.clientX;
+          startY = e.clientY;
+
+          // 현재 마커의 위치를 가져오기
+          const currentLeft = parseFloat(marker.style.left);
+          const currentTop = parseFloat(marker.style.top);
+          startLeft = currentLeft;
+          startTop = currentTop;
+
+          marker.style.cursor = "grabbing";
+
+          // 전역 이벤트 리스너 추가
+          document.addEventListener("mousemove", onMouseMove);
+          document.addEventListener("mouseup", onMouseUp);
+        });
+
+        function onMouseMove(e) {
+          if (!isDragging) return;
+
+          const img = imageContainer.querySelector(".selected-image");
+          if (!img) return;
+
+          const imgRect = img.getBoundingClientRect();
+          const containerRect = imageContainer.getBoundingClientRect();
+
+          // 마우스 이동 거리 계산 (픽셀 단위)
+          const deltaX = e.clientX - startX;
+          const deltaY = e.clientY - startY;
+
+          // 새로운 픽셀 위치 계산
+          const newPixelLeft = parseFloat(marker.style.left) + deltaX;
+          const newPixelTop = parseFloat(marker.style.top) + deltaY;
+
+          // 이미지 경계 내로 제한
+          const imgLeft = imgRect.left - containerRect.left;
+          const imgTop = imgRect.top - containerRect.top;
+          const imgRight = imgLeft + img.clientWidth;
+          const imgBottom = imgTop + img.clientHeight;
+
+          const constrainedLeft = Math.max(imgLeft, Math.min(imgRight, newPixelLeft));
+          const constrainedTop = Math.max(imgTop, Math.min(imgBottom, newPixelTop));
+
+          // 마커 위치 업데이트
+          marker.style.left = constrainedLeft + "px";
+          marker.style.top = constrainedTop + "px";
+
+          // 퍼센트로 변환하여 테이블 업데이트
+          const leftPercent = Math.round(((constrainedLeft - imgLeft) / img.clientWidth) * 100);
+          const topPercent = Math.round(((constrainedTop - imgTop) / img.clientHeight) * 100);
+
+          // 데이터 속성 업데이트
+          marker.setAttribute("data-left-percent", leftPercent);
+          marker.setAttribute("data-top-percent", topPercent);
+
+          // 테이블 업데이트
+          const markerId = parseInt(marker.getAttribute("data-marker-id"));
+          updateMarkerTableById(markerId, leftPercent, topPercent);
+
+          // 다음 드래그를 위한 시작점 업데이트
+          startX = e.clientX;
+          startY = e.clientY;
+        }
+
+        function onMouseUp() {
+          if (isDragging) {
+            isDragging = false;
+            marker.style.cursor = "grab";
+
+            // 전역 이벤트 리스너 제거
+            document.removeEventListener("mousemove", onMouseMove);
+            document.removeEventListener("mouseup", onMouseUp);
+          }
+        }
+      }
+
+      function updateMarkerTableById(markerId, leftPercent, topPercent) {
+        const rows = document.querySelectorAll(".marker-table tbody tr");
+        const targetRow = rows[markerId - 1]; // markerId는 1부터 시작
+
+        if (targetRow) {
+          const leftInput = targetRow.querySelectorAll(".position-input")[0];
+          const topInput = targetRow.querySelectorAll(".position-input")[1];
+
+          leftInput.value = leftPercent + "%";
+          topInput.value = topPercent + "%";
+        }
+      }
+
+      function setupPcodeInputListeners() {
+        const pcodeInputs = document.querySelectorAll(".pcode-input");
+
+        pcodeInputs.forEach((input, index) => {
+          input.addEventListener("input", function (e) {
+            const pcodeValue = e.target.value;
+            const markerId = index + 1; // 1부터 시작
+
+            // 해당 마커 찾기
+            const marker = document.querySelector(
+              `[data-marker-id="${markerId}"]`,
+            );
+            if (marker) {
+              // 마커에 pcode 속성 추가/업데이트
+              if (pcodeValue.trim() !== "") {
+                marker.setAttribute("pcode", pcodeValue);
+              } else {
+                marker.removeAttribute("pcode");
+              }
+            }
+          });
+        });
+      }
+
+      // pcode input 이벤트 리스너 초기화
+      setupPcodeInputListeners();
+
+      // imageContainer의 HTML을 textarea에 동기화하는 함수
+      function syncImageContainerToTextarea() {
+        const notesTextarea = document.querySelector(".notes-textarea");
+        const imageContainer = document.getElementById("imageContainer");
+
+        if (notesTextarea && imageContainer) {
+          // imageContainer의 전체 HTML을 포맷팅하여 textarea에 표시
+          const htmlContent = formatHtml(imageContainer.outerHTML);
+          notesTextarea.value = htmlContent;
+        }
+      }
+
+      // HTML을 읽기 쉽게 포맷팅하는 함수
+      function formatHtml(html) {
+        // 기본적인 들여쓰기와 줄바꿈을 추가하여 가독성 향상
+        return html
+          .replace(/></g, ">\n<")
+          .replace(/^\s+|\s+$/g, "")
+          .split("\n")
+          .map((line, index) => {
+            const depth =
+              (line.match(/^<\//) ? -1 : 0) +
+              (line.match(/<[^\/]/g) || []).length -
+              (line.match(/<\/[^>]*>/g) || []).length;
+            const indent = "  ".repeat(Math.max(0, index > 0 ? depth : 0));
+            return indent + line.trim();
+          })
+          .join("\n");
+      }
+
+      // MutationObserver를 설정하여 imageContainer의 변경사항을 감지
+      function setupImageContainerObserver() {
+        const imageContainer = document.getElementById("imageContainer");
+
+        if (imageContainer) {
+          const observer = new MutationObserver(function (mutations) {
+            // imageContainer에 변경이 발생할 때마다 textarea 동기화
+            syncImageContainerToTextarea();
+          });
+
+          // 자식 노드 추가/제거, 속성 변경, 텍스트 변경을 모두 감지
+          observer.observe(imageContainer, {
+            childList: true,
+            subtree: true,
+            attributes: true,
+            attributeOldValue: true,
+            characterData: true,
+            characterDataOldValue: true,
+          });
+        }
+      }
+
+      // 페이지 로드 시 초기화
+      document.addEventListener("DOMContentLoaded", function () {
+        setupImageContainerObserver();
+        syncImageContainerToTextarea(); // 초기 동기화
+      });
+
+      // 디버깅 함수 (콘솔에서 사용 가능)
+      window.debugMarkers = function () {
+        const markers = document.querySelectorAll(".marker-plus");
+        console.log("현재 마커 정보:");
+        markers.forEach((marker) => {
+          console.log({
+            id: marker.getAttribute("data-marker-id"),
+            pcode: marker.getAttribute("pcode"),
+            left: marker.style.left,
+            top: marker.style.top,
+          });
+        });
+      };
+
+      // 수동 동기화 함수 (필요 시 콘솔에서 호출 가능)
+      window.syncTextarea = function () {
+        syncImageContainerToTextarea();
+        console.log("Textarea synced with imageContainer");
+      };
+
+      // 창 크기 변경 시 마커 위치 재조정
+      function repositionMarkers() {
+        const img = imageContainer.querySelector(".selected-image");
+        const markers = imageContainer.querySelectorAll(".marker-plus");
+        
+        if (!img || markers.length === 0) return;
+
+        const imgRect = img.getBoundingClientRect();
+        const containerRect = imageContainer.getBoundingClientRect();
+
+        markers.forEach(marker => {
+          const leftPercent = parseFloat(marker.getAttribute("data-left-percent"));
+          const topPercent = parseFloat(marker.getAttribute("data-top-percent"));
+
+          if (!isNaN(leftPercent) && !isNaN(topPercent)) {
+            // 퍼센트를 기반으로 새로운 픽셀 위치 계산
+            const imgX = (leftPercent / 100) * img.clientWidth;
+            const imgY = (topPercent / 100) * img.clientHeight;
+            
+            const containerX = imgX + (imgRect.left - containerRect.left);
+            const containerY = imgY + (imgRect.top - containerRect.top);
+            
+            marker.style.left = containerX + "px";
+            marker.style.top = containerY + "px";
+          }
+        });
+      }
+
+      // 창 크기 변경 감지
+      window.addEventListener('resize', repositionMarkers);
+      
+      // 이미지 로드 시 마커 재배치
+      function setupImageLoadHandler() {
+        const img = imageContainer.querySelector(".selected-image");
+        if (img) {
+          img.addEventListener('load', repositionMarkers);
+        }
+      }
+    </script>
+  </body>
+</html>

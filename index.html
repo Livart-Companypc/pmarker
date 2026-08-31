@@ -370,22 +370,33 @@
         const marker = document.createElement("div");
         marker.className = "marker-plus";
 
-        // 이미지 위치와 크기를 고려한 마커 위치 계산
         const img = imageContainer.querySelector(".selected-image");
         if (img) {
           const imgRect = img.getBoundingClientRect();
           const containerRect = imageContainer.getBoundingClientRect();
 
-          // 이미지 내에서의 픽셀 위치
-          const imgX = (leftPercent / 100) * img.clientWidth;
-          const imgY = (topPercent / 100) * img.clientHeight;
+          // 이미지 offset(컨테이너 내 이미지 시작점)을 컨테이너 % 기준으로 변환
+          const imgOffsetLeftPct =
+            ((imgRect.left - containerRect.left) / imageContainer.clientWidth) *
+            100;
+          const imgOffsetTopPct =
+            ((imgRect.top - containerRect.top) / imageContainer.clientHeight) *
+            100;
 
-          // 컨테이너 내에서의 절대 위치
-          const containerX = imgX + (imgRect.left - containerRect.left);
-          const containerY = imgY + (imgRect.top - containerRect.top);
+          // 이미지 크기를 컨테이너 % 기준으로 변환
+          const imgWidthPct =
+            (img.clientWidth / imageContainer.clientWidth) * 100;
+          const imgHeightPct =
+            (img.clientHeight / imageContainer.clientHeight) * 100;
 
-          marker.style.left = containerX + "px";
-          marker.style.top = containerY + "px";
+          // 컨테이너 기준 % 위치
+          const containerLeftPct =
+            imgOffsetLeftPct + (leftPercent / 100) * imgWidthPct;
+          const containerTopPct =
+            imgOffsetTopPct + (topPercent / 100) * imgHeightPct;
+
+          marker.style.left = containerLeftPct + "%";
+          marker.style.top = containerTopPct + "%";
         }
 
         marker.textContent = "+";
@@ -394,7 +405,6 @@
         marker.setAttribute("data-left-percent", leftPercent);
         marker.setAttribute("data-top-percent", topPercent);
 
-        // 기존에 입력된 pcode 값이 있다면 마커에 반영
         const rows = document.querySelectorAll(".marker-table tbody tr");
         if (markerCount < rows.length) {
           const row = rows[markerCount];
@@ -404,10 +414,7 @@
           }
         }
 
-        // 드래그 기능 추가
         setupMarkerDrag(marker);
-
-        // imageContainer를 부모로 하여 마커 추가
         imageContainer.appendChild(marker);
       }
 
@@ -571,18 +578,33 @@
       // imageContainer의 HTML을 textarea에 동기화하는 함수
       function syncImageContainerToTextarea() {
         const notesTextarea = document.querySelector(".notes-textarea");
-        const imageContainer = document.getElementById("imageContainer");
+        const rows = document.querySelectorAll(".marker-table tbody tr");
 
-        if (notesTextarea && imageContainer) {
-          // imageContainer를 복사하고 img.selected-image 제거
-          const containerClone = imageContainer.cloneNode(true);
-          const selectedImages = containerClone.querySelectorAll('.selected-image');
-          selectedImages.forEach(img => img.remove());
-          
-          // 복사본의 HTML을 포맷팅하여 textarea에 표시
-          const htmlContent = formatHtml(containerClone.outerHTML);
-          notesTextarea.value = htmlContent;
-        }
+        if (!notesTextarea) return;
+
+        const markers = [];
+
+        rows.forEach((row, index) => {
+          const markerName = row.cells[0]?.textContent.trim();
+          const pcode = row.querySelector(".pcode-input")?.value.trim();
+          const positionInputs = row.querySelectorAll(".position-input");
+
+          const left = positionInputs[0]?.value.trim();
+          const top = positionInputs[1]?.value.trim();
+
+          // 값이 하나라도 입력된 마커만 JSON에 포함
+          if (pcode || left || top) {
+            markers.push({
+              [markerName]: {
+                pcode: pcode || "",
+                left: left || "",
+                top: top || "",
+              },
+            });
+          }
+        });
+
+        notesTextarea.value = JSON.stringify(markers, null, 2);
       }
 
       // HTML을 읽기 쉽게 포맷팅하는 함수

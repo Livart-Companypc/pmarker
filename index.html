@@ -574,8 +574,13 @@
         const imageContainer = document.getElementById("imageContainer");
 
         if (notesTextarea && imageContainer) {
-          // imageContainer의 전체 HTML을 포맷팅하여 textarea에 표시
-          const htmlContent = formatHtml(imageContainer.outerHTML);
+          // imageContainer를 복사하고 img.selected-image 제거
+          const containerClone = imageContainer.cloneNode(true);
+          const selectedImages = containerClone.querySelectorAll('.selected-image');
+          selectedImages.forEach(img => img.remove());
+          
+          // 복사본의 HTML을 포맷팅하여 textarea에 표시
+          const htmlContent = formatHtml(containerClone.outerHTML);
           notesTextarea.value = htmlContent;
         }
       }

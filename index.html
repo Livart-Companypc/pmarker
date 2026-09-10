@@ -293,12 +293,14 @@
       const imageInput = document.getElementById("imageInput");
       const imageContainer = document.getElementById("imageContainer");
       let selectedImage = null;
+      let selectedFileName = "";
       let markerCount = 0;
 
       imageInput.addEventListener("change", function (event) {
         const file = event.target.files[0];
 
         if (file && file.type.startsWith("image/")) {
+          selectedFileName = file.name;
           const reader = new FileReader();
 
           reader.onload = function (e) {
@@ -315,10 +317,13 @@
           };
 
           reader.readAsDataURL(file);
+          syncImageContainerToTextarea();
         } else {
           selectedImage = null;
+          selectedFileName = "";
           imageContainer.innerHTML =
             '<p class="placeholder-text">올바른 이미지 파일을 선택해주세요.</p>';
+          syncImageContainerToTextarea();
         }
       });
 
@@ -605,7 +610,10 @@
           }
         });
 
-        notesTextarea.value = JSON.stringify(markers, null, 2);
+        const markersJson = JSON.stringify(markers, null, 2);
+        notesTextarea.value = selectedFileName
+          ? selectedFileName + "\n" + markersJson
+          : markersJson;
       }
 
       // HTML을 읽기 쉽게 포맷팅하는 함수
